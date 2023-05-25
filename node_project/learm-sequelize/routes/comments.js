@@ -1,5 +1,5 @@
 const express = require('express');
-const {Comment} = require('../models');
+const { Comment } = require('../models');
 
 const router = express.Router();
 
@@ -7,7 +7,7 @@ router.post('/', async(req, res, next)=>{
     try{
         const comment = await Comment.create({
             commenter : req.body.id,
-            comment:req.body.comment,
+            comment : req.body.comment,
         });
         console.log(comment);
         res.status(201).json(comment);
@@ -23,7 +23,7 @@ router.route('/:id')
             const result = await Comment.update({
                 comment: req.body.comment,
             },{
-                where: { id:req.params.id },
+                where: { id: req.params.id },
             });
             res.json(result);
         }catch(err){

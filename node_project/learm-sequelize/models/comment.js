@@ -7,7 +7,7 @@ class Comment extends Sequelize.Model{
                 type:Sequelize.STRING(100),
                 allowNull:false,
             },
-            create_at:{
+            created_at:{
                 type:Sequelize.DATE,
                 allowNull:true,
                 defaultValue:Sequelize.NOW,
@@ -25,6 +25,6 @@ class Comment extends Sequelize.Model{
     static associate(db){
         db.Comment.belongsTo(db.User, { foreignKey:'commenter', targetKey:'id'});
     }
-}
+};
 
 module.exports = Comment;
