@@ -5,7 +5,7 @@ const path = require('path');
 const session = require('express-session');
 const nunjucks = require('nunjucks');
 const dotenv = require('dotenv');
-const passpot = require('passport');
+const passport = require('passport');
 
 dotenv.config();
 const pageRouter = require('./routes/page');
@@ -42,8 +42,8 @@ app.use(session({
         secure: false,
     } 
 }));
-app.use(passpot.initialize());
-app.use(passpot.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', pageRouter);
 
